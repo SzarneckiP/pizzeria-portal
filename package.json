@@ -2,6 +2,7 @@
   "name": "pizzeria-portal",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/panel/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -23,8 +24,10 @@
     "start": "run-p start:* ",
     "start-silent": "run-p start > /dev/null",
     "start:react": "react-scripts start",
+    "start:api": "yarn build && node server.js",
     "start-and-test": "run-p start-silent test ",
     "build": "react-scripts build",
+    "lint": "esw --watch --clear",
     "test": "react-scripts test --noStackTrace",
     "test-all": "react-scripts test --watchAll=false --noStackTrace",
     "test-related": "react-scripts test --watchAll=false --noStackTrace --findRelatedTests",
@@ -54,6 +57,7 @@
     ]
   },
   "devDependencies": {
+    "eslint-watch": "^7.0.0",
     "husky": "^5.2.0",
     "lint-staged": "^10.5.4",
     "redux-devtools-extension": "^2.13.9"
