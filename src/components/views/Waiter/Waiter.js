@@ -6,7 +6,7 @@ const Waiter = () => (
   <div className={styles.component}>
     <h2>Waiter View</h2>
     <Link to={`${process.env.PUBLIC_URL}/waiter/order/new`}> NEW Order </Link>
-    <Link to={`${process.env.PUBLIC_URL}/waiter/order/:id`}> Order ID </Link>
+    <Link to={`${process.env.PUBLIC_URL}/waiter/order/123`}> Order ID </Link>
   </div>
 );
 
