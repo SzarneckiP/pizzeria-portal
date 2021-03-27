@@ -2,15 +2,15 @@ import React from 'react';
 import styles from './Event.scss';
 import PropTypes from 'prop-types';
 
-const Event = ({ id }) => (
+const Event = (props) => (
   <div className={styles.component}>
     <h2>Event</h2>
-    {id}
+    { props.match.params.id}
   </div>
 );
 
 Event.propTypes = {
-  id: PropTypes.string,
+  match: PropTypes.object,
 };
 
 export default Event;

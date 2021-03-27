@@ -3,18 +3,23 @@ import PropTypes from 'prop-types';
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import Container from '@material-ui/core/Container';
 
 import PageNav from '../PageNav/PageNav';
 
 const MainLayout = ({ children }) => (
   <div>
     <AppBar>
-      <Toolbar>
-        <PageNav />
-      </Toolbar>
+      <Container maxWidth='lg'>
+        <Toolbar disableGutters>
+          <PageNav />
+        </Toolbar>
+      </Container>
     </AppBar>
-    <Toolbar />
-    {children}
+    <Container maxWidth='lg'>
+      <Toolbar /> {/* dodatkowy Toolbar przesówa tekst w dół aby nie znajdował się pod NavBar*/}
+      {children}
+    </Container>
   </div>
 );
 
