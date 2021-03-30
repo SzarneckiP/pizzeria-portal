@@ -24,21 +24,22 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
-const Lists = [
+const lists = [
   {
     id: 'Reservation',
     table: 'Table-1',
     time: '11:30',
     duration: '1h',
     people: '2',
+    details: '',
   },
   {
-    id: 'event',
+    id: 'Event',
     table: 'Table-2',
     time: '18:00',
     duration: '4h',
     people: '4',
-    details: 'birthday',
+    details: 'Birthday',
   },
 ];
 
@@ -56,13 +57,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function generate(element) {
-  return [0, 1, 2].map((value) =>
-    React.cloneElement(element, {
-      key: value,
-    }),
-  );
-}
 
 
 const Dashboard = (props) => {
@@ -94,7 +88,7 @@ const Dashboard = (props) => {
             </TableBody>
           </Table>
         </Grid>
-        <FormGroup row>
+        <FormGroup row margin="normal" >
           <FormControlLabel
             control={
               <Checkbox
@@ -111,16 +105,16 @@ const Dashboard = (props) => {
           </Typography>
           <div className={classes.demo}>
             <List dense={dense}>
-              {generate(
-                <ListItem>
+              {lists.map((lists) => (
+                <ListItem key={lists.id}>
                   <ListItemAvatar>
                     <Avatar>
                       <BallotIcon />
                     </Avatar>
                   </ListItemAvatar>
                   <ListItemText
-                    primary={Lists.id + Lists[Lists.table]}
-                    secondary={secondary ? '11:30 1h 2 people' : null}
+                    primary={lists.id + ' ' + lists.details + ' ' + lists.table}
+                    secondary={secondary ? lists.time + ' Duration: ' + lists.duration + ' People: ' + lists.people : null}
                   />
                   <ListItemSecondaryAction edge="end" aria-label="details">
                     <IconButton>
@@ -130,8 +124,8 @@ const Dashboard = (props) => {
                       <DeleteIcon />
                     </IconButton>
                   </ListItemSecondaryAction>
-                </ListItem>,
-              )}
+                </ListItem>
+              ))}
             </List>
           </div>
         </Grid>
