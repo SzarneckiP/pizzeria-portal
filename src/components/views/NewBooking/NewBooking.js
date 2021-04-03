@@ -1,32 +1,31 @@
 import React from 'react';
-import styles from './EventNew.module.scss';
+import styles from './NewBooking.module.scss';
 import CheckboxTable from '../CheckboxTable/CheckboxTable';
 import DatePicker from '../../../utils/DatePicker';
 import TimePicker from '../../../utils/TimePicker';
+import BookingList from './BookingList';
 
 import { Grid } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
-import EventList from './EventList';
 
-const EventNew = () => (
-  <div className={styles.component}>
-    <h2>NEW Event</h2>
+const BookingNew = () => (
+  <Grid className={styles.component}>
+    <h2>NEW Booking</h2>
     <Grid className={styles.dateTimePicker}>
       <DatePicker />
       <TimePicker />
     </Grid>
     <CheckboxTable />
-    <EventList />
+    <BookingList />
     <Button
       type="submit"
       size="large"
       variant="contained"
       color="primary"
     >
-      Confirm the Event
+      Confirm the Booking
     </Button>
-  </div>
+  </Grid>
 );
 
-
-export default EventNew;
+export default BookingNew;

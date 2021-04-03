@@ -17,7 +17,7 @@ const MainLayout = ({ children }) => (
       </Container>
     </AppBar>
     <Container maxWidth='lg'>
-      <Toolbar /> {/* dodatkowy Toolbar przesówa tekst w dół aby nie znajdował się pod NavBar*/}
+      <Toolbar />
       {children}
     </Container>
   </div>

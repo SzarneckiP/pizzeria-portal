@@ -1,21 +1,57 @@
-export const tables = [
+export const availableTables = [
   {
     hours: '11:00',
+    tables: [
+      { id: '1', status: 'null' },
+      { id: '2', status: 'booked' },
+      { id: '3', status: 'event' },
+      { id: '4', status: 'null' },
+    ],
   },
   {
     hours: '11:30',
+    tables: [
+      { id: '1', status: 'null' },
+      { id: '2', status: 'booked' },
+      { id: '3', status: 'event' },
+      { id: '4', status: 'null' },
+    ],
   },
   {
     hours: '12:00',
+    tables: [
+      { id: '1', status: 'null' },
+      { id: '2', status: 'booked' },
+      { id: '3', status: 'event' },
+      { id: '4', status: 'null' },
+    ],
   },
   {
     hours: '12:30',
+    tables: [
+      { id: '1', status: 'null' },
+      { id: '2', status: 'booked' },
+      { id: '3', status: 'event' },
+      { id: '4', status: 'null' },
+    ],
   },
   {
     hours: '13:00',
+    tables: [
+      { id: '1', status: 'null' },
+      { id: '2', status: 'booked' },
+      { id: '3', status: 'event' },
+      { id: '4', status: 'null' },
+    ],
   },
   {
     hours: '13:30',
+    tables: [
+      { id: '1', status: 'null' },
+      { id: '2', status: 'booked' },
+      { id: '3', status: 'event' },
+      { id: '4', status: 'null' },
+    ],
   },
   {
     hours: '14:00',
