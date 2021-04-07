@@ -9,11 +9,12 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import ButtonOrder from './ButtonOrder';
+import { Typography } from '@material-ui/core';
 
 const demoContent = [
   { id: '1', status: 'free', order: null },
   { id: '2', status: 'thinking', order: null },
-  { id: '3', status: 'ordered', order: '123' },
+  { id: '3', status: 'ordered', order: 123 },
   { id: '4', status: 'prepared', order: 234 },
   { id: '5', status: 'delivered', order: 345 },
   { id: '6', status: 'paid', order: 456 },
@@ -55,9 +56,9 @@ const renderActions = status => {
 
 const Waiter = () => (
   <Paper className={styles.component}>
-    <Link to={'/waiter/order/123'} >Waiter ID</Link>
-    <ButtonOrder />
-    <Table>
+    <Typography className={styles.typography} variant="h2">Waiters View</Typography>
+    <ButtonOrder className={styles.button} />
+    <Table className={styles.table}>
       <TableHead>
         <TableRow>
           <TableCell>Table</TableCell>
@@ -77,7 +78,7 @@ const Waiter = () => (
             </TableCell>
             <TableCell>
               {row.order && (
-                <Button to={`/waiter/order/${row.order}`}>
+                <Button component={Link} to={`/waiter/order/${row.order}`}>
                   {row.order}
                 </Button>
               )}

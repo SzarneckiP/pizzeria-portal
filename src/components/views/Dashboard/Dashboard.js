@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Dashboard.module.scss';
+import { Link } from 'react-router-dom';
 
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
@@ -54,6 +55,12 @@ const useStyles = makeStyles((theme) => ({
   title: {
     margin: theme.spacing(4, 0, 2),
   },
+  basePadding: {
+    padding: '20px 0',
+  },
+  formGroup: {
+    marginTop: '80px',
+  },
 }));
 
 
@@ -66,10 +73,9 @@ const Dashboard = (props) => {
 
   return (
     <div className={styles.component}>
-      <h2>Dashboard View</h2>
-
+      <Typography variant='h2'>Dashboard View</Typography>
       <Grid>
-        <Grid>
+        <Grid className={classes.basePadding}>
           <Typography variant="h6" className={classes.title}>
             Today&apos;s Orders
           </Typography>
@@ -88,7 +94,7 @@ const Dashboard = (props) => {
             </TableBody>
           </Table>
         </Grid>
-        <FormGroup row margin="normal" >
+        <FormGroup className={classes.formGroup} row margin="normal" >
           <FormControlLabel
             control={
               <Checkbox
@@ -99,7 +105,7 @@ const Dashboard = (props) => {
             label="Enable details"
           />
         </FormGroup>
-        <Grid>
+        <Grid >
           <Typography variant="h6" className={classes.title}>
             Reservations and Events
           </Typography>
@@ -117,11 +123,11 @@ const Dashboard = (props) => {
                     secondary={secondary ? lists.time + ' Duration: ' + lists.duration + ' People: ' + lists.people : null}
                   />
                   <ListItemSecondaryAction edge="end" aria-label="details">
-                    <IconButton>
-                      <DetailsIcon />
+                    <IconButton component={Link} to={'/tables'}>
+                      <DetailsIcon color='primary' />
                     </IconButton>
                     <IconButton edge="end" aria-label="delete">
-                      <DeleteIcon />
+                      <DeleteIcon color='primary' />
                     </IconButton>
                   </ListItemSecondaryAction>
                 </ListItem>

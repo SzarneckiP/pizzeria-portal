@@ -11,37 +11,38 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
+import { Typography } from '@material-ui/core';
 
 const availableTables = [
   {
     hours: '11:00',
     tables: [
-      { id: '1', status: 'null' },
-      { id: '2', status: 'booked' },
-      { id: '3', status: 'event' },
-      { id: '4', status: 'null' },
+      { id: '1', status: 'null', order: null },
+      { id: '2', status: 'booking', order: 234 },
+      { id: '3', status: 'events', order: 345 },
+      { id: '4', status: 'null', order: null },
     ],
   },
   {
     hours: '12:00',
     tables: [
-      { id: '1', status: 'booked' },
-      { id: '2', status: 'booked' },
-      { id: '3', status: 'null' },
-      { id: '4', status: 'null' },
+      { id: '1', status: 'booking', order: 456 },
+      { id: '2', status: 'events', order: 999 },
+      { id: '3', status: 'null', order: null },
+      { id: '4', status: 'null', order: null },
     ],
   },
 ];
 
 const renderActions = status => {
   switch (status) {
-    case 'booked':
+    case 'booking':
       return (
-        <Button component={Link} to={'/tables/booking/:id'}>Booked</Button>
+        <Typography>Booked </Typography>
       );
-    case 'event':
+    case 'events':
       return (
-        <Button component={Link} to={'/tables/events/:id'}>Event</Button>
+        <Typography>Event </Typography>
       );
     case 'null':
       return (
@@ -74,8 +75,12 @@ const TableComponent = () => (
             </TableCell>
             {row.tables.map((table =>
               <TableCell key={table.id} align="center">
-                {renderActions(table.status)}
+                <Button component={Link} to={`/tables/${table.status}/${table.order}`}>
+                  {renderActions(table.status)}
+                  {table.order}
+                </Button>
               </TableCell>
+
             ))}
           </TableRow>
         ))}
