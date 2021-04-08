@@ -33,28 +33,28 @@ class Waiter extends React.Component {
         return (
           <>
             <Button onClick={() => fetchStatus(tableId, 'thinking')}>thinking</Button>
-            <Button onClick={() => fetchStatus(tableId, 'new order')}>new order</Button>
+            <Button component={Link} to={'waiter/orderNew'}>new order</Button>
           </>
         );
       case 'thinking':
         return (
-          <Button onClick={() => fetchStatus(tableId, 'new order')} >new order</Button>
+          <Button component={Link} to={'waiter/orderNew'} >new order</Button>
         );
       case 'ordered':
         return (
-          <Button onClick={() => fetchStatus(tableId, 'ordered')}>prepared</Button>
+          <Button onClick={() => fetchStatus(tableId, 'prepared')}>prepared</Button>
         );
       case 'prepared':
         return (
-          <Button>delivered</Button>
+          <Button onClick={() => fetchStatus(tableId, 'delivered')}>delivered</Button>
         );
       case 'delivered':
         return (
-          <Button>paid</Button>
+          <Button onClick={() => fetchStatus(tableId, 'paid')}>paid</Button>
         );
       case 'paid':
         return (
-          <Button>free</Button>
+          <Button onClick={() => fetchStatus(tableId, 'free')}>free</Button>
         );
       default:
         return null;
